@@ -26,6 +26,8 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 .t-white { background: #ffffff; }
 .t-red   { background: #C8102E; }
 
+.t-burg  { background: #1C060C; }
+
 /* ── SLIDE 1: COVER ── */
 .s1-inner { width: 100%; display: flex; flex-direction: column; gap: 4vh; }
 .s1-tag { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.35); }
@@ -36,55 +38,55 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 .s1-rule { width: 100%; height: 1px; background: rgba(255,255,255,.1); }
 .s1-bottom { display: flex; justify-content: space-between; align-items: center; }
 .s1-presenter { font-size: clamp(13px, 1.2vw, 17px); font-weight: 400; color: rgba(255,255,255,.55); }
-.s1-src { font-size: clamp(9px, .8vw, 11px); color: rgba(255,255,255,.2); letter-spacing: .05em; }
+.s1-src { font-size: clamp(13px, 1.25vw, 17px); color: rgba(255,255,255,.2); letter-spacing: .05em; }
 
 /* ── SLIDE 2: INTRO ── */
 .intro-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; width: 100%; height: 82vh; }
 .intro-left { background: #0e0204; border-radius: 12px; padding: 5vh 3.5vw; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,.4); }
 .intro-glow { position: absolute; top: -10%; right: -5%; width: 55%; height: 60%; background: radial-gradient(ellipse, rgba(200,16,46,.15) 0%, transparent 70%); pointer-events: none; }
-.intro-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; margin-bottom: 1.5vh; }
+.intro-ey { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; margin-bottom: 1.5vh; flex-shrink: 0; }
 .intro-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 4vw, 56px); font-weight: 700; color: #fff; line-height: 1; margin-bottom: .4vh; }
-.intro-role { font-size: clamp(10px, .95vw, 13px); font-weight: 600; color: #C8102E; letter-spacing: .04em; margin-bottom: 2.5vh; }
+.intro-role { font-size: clamp(13px, 1.15vw, 16px); font-weight: 600; color: #C8102E; letter-spacing: .04em; margin-bottom: 2.5vh; }
 .intro-bio { font-size: clamp(13px, 1.28vw, 17px); font-weight: 300; color: rgba(255,255,255,.62); line-height: 1.85; }
 .intro-qbar { border-left: 3px solid #C8102E; padding: 1.3vh 1.3vw; margin-top: 2.5vh; }
 .intro-qt { font-family: 'Cormorant Garamond', serif; font-size: clamp(13px, 1.28vw, 17px); font-style: italic; color: rgba(255,255,255,.68); line-height: 1.52; margin-bottom: .5vh; }
-.intro-qa { font-size: clamp(9px, .85vw, 12px); font-weight: 700; color: #C8102E; }
+.intro-qa { font-size: clamp(13px, 1.25vw, 17px); font-weight: 700; color: #C8102E; }
 .intro-right { display: flex; flex-direction: column; justify-content: space-between; gap: 1.5vh; }
 .pill { flex: 1; background: #fff; border: 1px solid rgba(200,16,46,.1); border-radius: 10px; padding: 0 2vw; display: flex; align-items: center; gap: 2vw; box-shadow: 0 2px 16px rgba(0,0,0,.07); }
 .pill-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.2vw, 46px); font-weight: 700; color: #C8102E; line-height: 1; min-width: 5.5vw; flex-shrink: 0; }
-.pill-text { font-size: clamp(12px, 1.1vw, 15px); color: #444; line-height: 1.5; }
+.pill-text { font-size: clamp(13px, 1.25vw, 17px); color: #444; line-height: 1.5; }
 .pill-text strong { color: #0e0204; font-weight: 600; }
 
 /* ── SLIDE 3: WHAT IS ── */
 .what-wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 5vw; width: 100%; height: 82vh; }
 .what-left { display: flex; flex-direction: column; justify-content: center; }
-.what-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; margin-bottom: 1.5vh; }
+.what-ey { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; margin-bottom: 1.5vh; }
 .what-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 56px); font-weight: 700; color: #0e0204; line-height: 1.06; margin-bottom: 2.5vh; }
 .what-body { font-size: clamp(14px, 1.38vw, 19px); font-weight: 300; color: #333; line-height: 1.85; margin-bottom: 3vh; }
 .what-quote { background: #fdf4f5; border-left: 4px solid #C8102E; padding: 1.8vh 1.6vw; border-radius: 0 8px 8px 0; }
 .what-qt { font-family: 'Cormorant Garamond', serif; font-size: clamp(14px, 1.42vw, 20px); font-style: italic; color: #0e0204; line-height: 1.52; margin-bottom: .6vh; }
-.what-qa { font-size: clamp(9px, .86vw, 12px); font-weight: 700; color: #C8102E; }
-.what-qr { font-size: clamp(9px, .78vw, 11px); color: #888; margin-top: 2px; }
+.what-qa { font-size: clamp(13px, 1.25vw, 17px); font-weight: 700; color: #C8102E; }
+.what-qr { font-size: clamp(13px, 1.25vw, 17px); color: #888; margin-top: 2px; }
 .what-right { display: flex; flex-direction: column; justify-content: center; gap: 1.2vh; }
 .fact { background: #fff; border: 1px solid #ede7e1; border-left: 3px solid #C8102E; border-radius: 0 8px 8px 0; padding: 1.5vh 1.3vw; box-shadow: 0 2px 12px rgba(0,0,0,.05); }
-.fact-lbl { font-size: clamp(9px, .82vw, 11px); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #C8102E; margin-bottom: .4vh; }
+.fact-lbl { font-size: clamp(13px, 1.25vw, 17px); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #C8102E; margin-bottom: .4vh; }
 .fact-val { font-size: clamp(13px, 1.22vw, 17px); color: #0e0204; font-weight: 500; line-height: 1.46; }
 
 /* ── SLIDE 4: WHAT IT DOES ── */
 .does-wrap { width: 100%; display: flex; flex-direction: column; gap: 3vh; }
 .does-hdr { display: flex; justify-content: space-between; align-items: flex-end; }
-.does-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.42); }
+.does-ey { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.42); }
 .does-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 52px); font-weight: 700; color: #fff; line-height: 1; }
 .does-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5vw; }
 .does-card { background: rgba(255,255,255,.065); border: 1px solid rgba(255,255,255,.1); border-top: 3px solid #C8102E; border-radius: 8px; padding: 3.5vh 2vw; }
 .does-big { font-family: 'Cormorant Garamond', serif; font-size: clamp(50px, 6.2vw, 88px); font-weight: 700; color: #C8102E; line-height: 1; margin-bottom: 1.5vh; }
 .does-title { font-size: clamp(13px, 1.25vw, 17px); font-weight: 600; color: #fff; margin-bottom: .8vh; }
-.does-sub { font-size: clamp(11px, 1.05vw, 14px); color: rgba(255,255,255,.52); line-height: 1.68; }
+.does-sub { font-size: clamp(13px, 1.2vw, 16px); color: rgba(255,255,255,.52); line-height: 1.68; }
 
 /* ── SLIDE 5: HOW IT WORKS ── */
 .how-wrap { width: 100%; display: flex; flex-direction: column; gap: 4vh; }
 .how-hdr { }
-.how-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; margin-bottom: 1.2vh; }
+.how-ey { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; margin-bottom: 1.2vh; }
 .how-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 52px); font-weight: 700; color: #0e0204; line-height: 1; }
 .how-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 2.5vw; }
 .how-step { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
@@ -92,16 +94,16 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 .how-step:last-child .how-conn { display: none; }
 .how-num { width: clamp(46px,5.2vw,70px); height: clamp(46px,5.2vw,70px); border-radius: 50%; background: #C8102E; color: #fff; font-family: 'Cormorant Garamond', serif; font-size: clamp(20px,2.4vw,32px); font-weight: 700; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; margin-bottom: 2vh; flex-shrink: 0; box-shadow: 0 6px 22px rgba(200,16,46,.38); }
 .how-title { font-size: clamp(13px, 1.28vw, 17px); font-weight: 600; color: #0e0204; margin-bottom: .8vh; }
-.how-body { font-size: clamp(11px, 1.05vw, 14px); color: #666; line-height: 1.72; }
+.how-body { font-size: clamp(13px, 1.2vw, 16px); color: #666; line-height: 1.72; }
 .how-key { background: #fff; border: 1px solid #ede7e1; border-left: 4px solid #C8102E; border-radius: 0 8px 8px 0; padding: 1.5vh 2vw; font-size: clamp(13px, 1.25vw, 17px); color: #0e0204; line-height: 1.65; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
 
 /* ── SLIDE 6: CLINICAL ── */
 .clin-wrap { width: 100%; display: flex; flex-direction: column; gap: 2.5vh; }
 .clin-hdr { display: flex; justify-content: space-between; align-items: flex-end; }
-.clin-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; }
+.clin-ey { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; }
 .clin-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 52px); font-weight: 700; color: #0e0204; line-height: 1; }
 .clin-rct { background: #fff; border: 1px solid #ede7e1; border-radius: 12px; padding: 3vh 3vw; box-shadow: 0 4px 28px rgba(0,0,0,.08); display: flex; flex-direction: column; gap: 2vh; }
-.clin-lbl { font-size: clamp(9px, .8vw, 11px); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #bbb; }
+.clin-lbl { font-size: clamp(13px, 1.25vw, 17px); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #bbb; }
 .clin-cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 2vw; }
 .cbox { border-radius: 10px; padding: 3.5vh 2vw; text-align: center; }
 .cbox.g { background: linear-gradient(150deg,#f0fdf4,#eafaf0); border: 1.5px solid #86efac; }
@@ -110,35 +112,35 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 .cbox.g .cbox-n { color: #15803d; }
 .cbox.b .cbox-n { color: #dc2626; }
 .cbox-l { font-size: clamp(13px, 1.2vw, 16px); color: #444; line-height: 1.5; }
-.clin-footer { background: #f0fdf4; border-radius: 6px; padding: 1.3vh 1.8vw; font-size: clamp(12px, 1.1vw, 15px); color: #15803d; font-weight: 600; }
+.clin-footer { background: #f0fdf4; border-radius: 6px; padding: 1.3vh 1.8vw; font-size: clamp(13px, 1.25vw, 17px); color: #15803d; font-weight: 600; }
 .clin-extras { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5vw; }
 .rxt { background: #fafaf8; border: 1px solid #ede7e1; border-radius: 8px; padding: 1.5vh 1.2vw; text-align: center; }
 .rxt-n { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 2.8vw, 38px); font-weight: 700; color: #C8102E; line-height: 1; margin-bottom: .4vh; }
-.rxt-l { font-size: clamp(10px, .92vw, 13px); color: #777; line-height: 1.4; }
+.rxt-l { font-size: clamp(13px, 1.15vw, 16px); color: #777; line-height: 1.4; }
 
 /* ── SLIDE 7: WHY ── */
 .why-wrap { width: 100%; display: flex; flex-direction: column; gap: 2.5vh; }
 .why-hdr { display: flex; justify-content: space-between; align-items: flex-end; }
-.why-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.52); }
+.why-ey { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.52); }
 .why-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 52px); font-weight: 700; color: #fff; line-height: 1; }
 .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.6vw; }
 .why-card { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 2.8vh 2vw; }
 .why-ct { font-size: clamp(15px, 1.5vw, 21px); font-weight: 700; color: #fff; margin-bottom: 1.6vh; padding-bottom: 1.4vh; border-bottom: 1px solid rgba(255,255,255,.2); }
 .why-pts { list-style: none; }
-.why-pts li { font-size: clamp(12px, 1.18vw, 16px); color: rgba(255,255,255,.78); line-height: 1.75; padding-left: 1.2vw; position: relative; margin-bottom: .4vh; }
+.why-pts li { font-size: clamp(13px, 1.25vw, 17px); color: rgba(255,255,255,.78); line-height: 1.75; padding-left: 1.2vw; position: relative; margin-bottom: .4vh; }
 .why-pts li::before { content: ''; width: 4px; height: 4px; background: rgba(255,255,255,.5); border-radius: 50%; position: absolute; left: 0; top: .6em; }
-.why-note { border-left: 3px solid rgba(255,255,255,.32); padding: 1vh 1.4vw; font-size: clamp(12px, 1.18vw, 16px); font-style: italic; color: rgba(255,255,255,.65); line-height: 1.7; }
+.why-note { border-left: 3px solid rgba(255,255,255,.32); padding: 1vh 1.4vw; font-size: clamp(13px, 1.25vw, 17px); font-style: italic; color: rgba(255,255,255,.65); line-height: 1.7; }
 
 /* ── SLIDE 8: CLOSE ── */
 .close-wrap { width: 100%; display: flex; flex-direction: column; gap: 3vh; }
 .close-hdr { }
-.close-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 1.2vh; }
+.close-ey { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 1.2vh; }
 .close-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4.2vw, 60px); font-weight: 700; color: #fff; line-height: 1.04; }
 .close-body { font-size: clamp(15px, 1.6vw, 22px); font-weight: 300; color: rgba(255,255,255,.7); line-height: 1.9; }
 .close-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.4vw; }
 .close-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-top: 2px solid #C8102E; border-radius: 8px; padding: 2vh 1.6vw; }
-.close-ct { font-size: clamp(12px, 1.1vw, 15px); font-weight: 700; color: #fff; margin-bottom: .6vh; }
-.close-cb { font-size: clamp(10px, .95vw, 13px); color: rgba(255,255,255,.5); line-height: 1.62; }
+.close-ct { font-size: clamp(13px, 1.25vw, 17px); font-weight: 700; color: #fff; margin-bottom: .6vh; }
+.close-cb { font-size: clamp(13px, 1.15vw, 16px); color: rgba(255,255,255,.5); line-height: 1.62; }
 
 /* ── NAV ── */
 .prog { position: fixed; bottom: 0; left: 0; height: 2px; background: #C8102E; transition: width .35s ease; z-index: 300; }
@@ -153,22 +155,20 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 .how-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; width: 100%; }
 .how-gif-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .how-gif { width: 100%; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,.15); }
-.how-gif-cap { font-size: 10px; color: #aaa; margin-top: 8px; letter-spacing: .04em; }
+.how-gif-cap { font-size: 13px; color: #aaa; margin-top: 8px; letter-spacing: .04em; }
 .how-right { display: flex; flex-direction: column; gap: 3vh; justify-content: center; }
 
-/* ── ABOUT ME: OPTION C ── */
-.intro-left { display: flex; flex-direction: column; }
-.intro-sec-top { padding: 4vh 3.5vw 3vh; border-bottom: 1px solid #1a0610; }
-.intro-sec-mid { padding: 3vh 3.5vw; flex: 1; display: flex; align-items: center; }
-.intro-sec-bot { padding: 3vh 3.5vw; background: #120508; }
+/* ── ABOUT ME: OPTION B ── */
+.intro-left { display: flex; flex-direction: column; padding: 4.5vh 3.5vw; justify-content: space-between; }
+.intro-divider { width: 100%; height: 1px; background: #1a0610; flex-shrink: 0; margin: 2vh 0; }
 
 /* ── WHY IT MATTERS: OPTION 3 ── */
 .why-stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3vw; width: 100%; flex: 1; }
 .why-stat-col { display: flex; flex-direction: column; gap: 1.8vh; }
-.why-stat-cat { font-size: clamp(9px,.85vw,12px); font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: #C8102E; padding-bottom: 1vh; border-bottom: 1px solid #2a0a18; flex-shrink: 0; }
+.why-stat-cat { font-size: clamp(13px, 1.25vw, 17px); font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: #C8102E; padding-bottom: 1vh; border-bottom: 1px solid #2a0a18; flex-shrink: 0; }
 .why-stat-row { display: flex; align-items: baseline; gap: 1vw; }
 .why-stat-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px,2.6vw,38px); font-weight: 700; color: #C8102E; line-height: 1; flex-shrink: 0; min-width: 4.5vw; }
-.why-stat-lbl { font-size: clamp(11px,1.05vw,14px); color: #888; line-height: 1.45; }
+.why-stat-lbl { font-size: clamp(13px,1.2vw,16px); color: #888; line-height: 1.45; }
 
 /* ── CLOSING: OPTION 3 ── */
 .close-split { display: grid; grid-template-columns: 1fr 1fr; width: 100%; height: 88vh; }
@@ -200,19 +200,15 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 <div class="slide t-off" id="s2">
   <div class="intro-wrap">
     <div class="intro-left">
-      <div class="intro-sec-top">
-        <div class="intro-ey">About Me</div>
-        <div class="intro-name">Athan Skedros</div>
-        <div class="intro-role">Finance Senior &bull; University of Utah &bull; May 2026 &bull; 3.75 GPA</div>
-      </div>
-      <div class="intro-sec-mid">
-        <p class="intro-bio">I am finishing my finance degree at the University of Utah this May. My background is in B2B outbound sales and I grew up around medicine and the OR with my father, a fellowship-trained orthopedic surgeon here in Salt Lake City. I always knew this world was for me. I have spent my career building the skills to be a genuine resource in it.</p>
-      </div>
-      <div class="intro-sec-bot">
-        <div class="intro-qbar">
-          <div class="intro-qt">Med device sales is not about selling. It is about being a partner, a trusted resource, and a bridge across the continuum of care.</div>
-          <div class="intro-qa">That is the rep I am building toward.</div>
-        </div>
+      <div class="intro-glow"></div>
+      <div class="intro-ey">About Me</div>
+      <div class="intro-name">Athan Skedros</div>
+      <div class="intro-role">Finance Senior &bull; U of Utah &bull; May 2026 &bull; 3.75 GPA</div>
+      <p class="intro-bio">I am finishing my finance degree at the University of Utah this May. My background is in B2B outbound sales and I grew up around medicine and the OR with my father, a fellowship-trained orthopedic surgeon here in Salt Lake City. I always knew this world was for me. I have spent my career building the skills to be a genuine resource in it.</p>
+      <div class="intro-divider"></div>
+      <div class="intro-qbar">
+        <div class="intro-qt">Med device sales is not about selling. It is about being a partner, a trusted resource, and a bridge across the continuum of care.</div>
+        <div class="intro-qa">That is the rep I am building toward.</div>
       </div>
     </div>
     <div class="intro-right">
@@ -311,10 +307,10 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 </div>
 
 <!-- 7 WHY IT MATTERS -->
-<div class="slide t-dark" id="s7">
+<div class="slide t-burg" id="s7">
   <div class="why-wrap">
     <div class="why-hdr">
-      <span class="why-ey" style="color:rgba(255,255,255,.42);">Why It Matters</span>
+      <span class="why-ey" style="color:rgba(255,255,255,.4);">Why It Matters</span>
       <h2 class="why-h2" style="color:#fff;">What changes for patients, surgeons, and the hospital</h2>
     </div>
     <div style="width:100%;height:2px;background:#C8102E;margin-bottom:2.5vh;flex-shrink:0;"></div>
@@ -341,7 +337,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
         <div class="why-stat-row"><span class="why-stat-num">&darr;</span><span class="why-stat-lbl">fewer revisions, lower cost per patient</span></div>
       </div>
     </div>
-    <div class="why-note" style="border-left-color:rgba(255,255,255,.3);color:rgba(255,255,255,.62);">I grew up in the OR. I know what a failed repair means for a patient. This product does not just improve the surgery. It changes the expected outcome.</div>
+    <div class="why-note" style="border-left-color:rgba(255,255,255,.35);color:rgba(255,255,255,.72);">I grew up in the OR. I know what a failed repair means for a patient. This product does not just improve the surgery. It changes the expected outcome.</div>
   </div>
 </div>
 
