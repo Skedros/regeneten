@@ -181,6 +181,25 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 .close-rule { width: 100%; height: 1px; background: #2a0a18; }
 .close-final { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px,1.8vw,26px); font-weight: 600; color: #C8102E; line-height: 1.35; font-style: italic; }
 .close-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4vw 1.4vw; width: 100%; }
+
+/* ── SLIDE 8: COMPETITIVE ADVANTAGE ── */
+.comp-wrap { width: 100%; display: flex; flex-direction: column; gap: 2.5vh; }
+.comp-hdr { display: flex; justify-content: space-between; align-items: flex-end; flex-shrink: 0; }
+.comp-ey { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.42); }
+.comp-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,3.6vw,52px); font-weight: 700; color: #fff; line-height: 1; }
+.comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2vw; flex: 1; }
+.comp-left { display: flex; flex-direction: column; gap: 1.2vh; }
+.comp-col-label { font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: .5vh; }
+.comp-competitor { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 6px; padding: 1.2vh 1.4vw; display: flex; align-items: center; justify-content: space-between; }
+.comp-name { font-size: clamp(13px,1.2vw,16px); font-weight: 600; color: rgba(255,255,255,.7); }
+.comp-type { font-size: clamp(11px,1.0vw,13px); color: rgba(255,255,255,.35); font-style: italic; }
+.comp-right { display: flex; flex-direction: column; gap: 1.2vh; }
+.comp-win { background: rgba(200,16,46,.12); border: 1px solid rgba(200,16,46,.3); border-left: 3px solid #C8102E; border-radius: 0 8px 8px 0; padding: 1.4vh 1.4vw; display: flex; flex-direction: column; gap: .5vh; }
+.comp-win-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px,2.4vw,34px); font-weight: 700; color: #C8102E; line-height: 1; }
+.comp-win-title { font-size: clamp(13px,1.2vw,16px); font-weight: 700; color: #fff; }
+.comp-win-body { font-size: clamp(12px,1.05vw,14px); color: rgba(255,255,255,.55); line-height: 1.5; }
+.comp-verdict { background: #C8102E; border-radius: 6px; padding: 1.4vh 1.8vw; flex-shrink: 0; }
+.comp-verdict-text { font-size: clamp(13px,1.25vw,17px); font-weight: 600; color: #fff; line-height: 1.55; }
 </style>
 </head>
 <body>
@@ -345,8 +364,51 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
   </div>
 </div>
 
-<!-- 8 CLOSE -->
-<div class="slide t-dark" id="s8">
+
+<!-- 8 COMPETITIVE ADVANTAGE -->
+<div class="slide t-dark" id="s9">
+  <div class="comp-wrap">
+    <div class="comp-hdr">
+      <span class="comp-ey">The Competitive Landscape</span>
+      <h2 class="comp-h2">Why REGENETEN wins the argument</h2>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-left">
+        <div class="comp-col-label">What else is out there</div>
+        <div class="comp-competitor"><span class="comp-name">ArthroFLEX (Arthrex)</span><span class="comp-type">Human dermal allograft · structural</span></div>
+        <div class="comp-competitor"><span class="comp-name">GraftJacket (Stryker)</span><span class="comp-type">Human acellular dermis · structural</span></div>
+        <div class="comp-competitor"><span class="comp-name">Conexa (Stryker)</span><span class="comp-type">Porcine collagen · structural</span></div>
+        <div class="comp-competitor"><span class="comp-name">Zimmer Collagen Repair</span><span class="comp-type">Porcine collagen + elastin · structural</span></div>
+        <div class="comp-competitor"><span class="comp-name">Permacol (Medtronic)</span><span class="comp-type">Porcine dermal · non-resorbable</span></div>
+        <div style="margin-top:.5vh;padding:1vh 1.2vw;border-left:2px solid rgba(255,255,255,.2);font-size:clamp(12px,1.05vw,14px);color:rgba(255,255,255,.45);font-style:italic;line-height:1.55;">Every one of these reinforces the repair mechanically. None of them induce the body to grow new tissue. That is the fundamental difference.</div>
+      </div>
+      <div class="comp-right">
+        <div class="comp-col-label">Why REGENETEN is different</div>
+        <div class="comp-win">
+          <div class="comp-win-num">Only one</div>
+          <div class="comp-win-title">True bioinductive scaffold on the market</div>
+          <div class="comp-win-body">Competitors reinforce. REGENETEN rebuilds. The body grows ~2mm of new tendon-like tissue. The implant disappears completely in 6 months.</div>
+        </div>
+        <div class="comp-win">
+          <div class="comp-win-num">Only RCT</div>
+          <div class="comp-win-title">Level 1 evidence in this space</div>
+          <div class="comp-win-body">A blinded multi-center randomized controlled trial showing 3x lower re-tear risk. No structural patch competitor has equivalent data.</div>
+        </div>
+        <div class="comp-win">
+          <div class="comp-win-num">Zero</div>
+          <div class="comp-win-title">Foreign material after 6 months</div>
+          <div class="comp-win-body">Every structural patch leaves permanent material behind. REGENETEN leaves nothing. Just the tissue the body built itself.</div>
+        </div>
+      </div>
+    </div>
+    <div class="comp-verdict">
+      <div class="comp-verdict-text">The question for any surgeon is not whether to augment. It is whether to reinforce or rebuild. REGENETEN is the only product that answers that question with Level 1 evidence and a mechanism no competitor can match.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 9 CLOSE -->
+<div class="slide t-dark" id="s9">
   <div class="close-split">
     <div class="close-left">
       <div class="close-ey">Closing</div>
@@ -378,6 +440,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
   <button class="dot" onclick="go(5)"></button>
   <button class="dot" onclick="go(6)"></button>
   <button class="dot" onclick="go(7)"></button>
+  <button class="dot" onclick="go(8)"></button>
 </div>
 <div class="arrs">
   <button class="arr" onclick="prev()">&#8592;</button>
@@ -385,7 +448,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 </div>
 
 <script>
-const N=8; let c=0;
+const N=9; let c=0;
 function show(n){
   document.querySelectorAll('.slide')[c].classList.remove('active');
   document.querySelectorAll('.dot')[c].classList.remove('active');
