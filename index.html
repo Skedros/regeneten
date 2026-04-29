@@ -8,402 +8,311 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans', sans-serif; background: #111; }
-
 .deck { position: fixed; inset: 0; }
 
-/* Every slide fills viewport completely */
 .slide {
   position: absolute; inset: 0;
-  width: 100vw; height: 100vh;
+  width: 100%; height: 100%;
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6vh 7vw;
 }
 .slide.active { display: flex; }
 
-/* ── THEMES ── */
 .t-dark  { background: #0e0204; }
 .t-off   { background: #f5f1ee; }
 .t-white { background: #ffffff; }
 .t-red   { background: #C8102E; }
 
-/* ── NAV ── */
-.prog { position: fixed; bottom: 0; left: 0; height: 2px; background: #C8102E; transition: width .35s ease; z-index: 500; }
-.dots { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 500; }
-.dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.22); border: none; cursor: pointer; transition: all .2s; outline: none; }
-.dot.active { background: #fff; width: 18px; border-radius: 3px; }
-.arrs { position: fixed; bottom: 13px; right: 22px; display: flex; gap: 6px; z-index: 500; }
-.arr { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); color: #fff; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; outline: none; transition: background .2s; }
-.arr:hover { background: rgba(255,255,255,.14); }
-
-/* ════════════════════════════════════
-   SLIDE 1: COVER
-════════════════════════════════════ */
-#s1 {
-  flex-direction: column;
-  justify-content: center;
-  padding: 7vh 8vw;
-}
-.s1-tag {
-  display: flex; align-items: center; gap: 10px;
-  font-size: clamp(9px,.78vw,11px); font-weight: 700;
-  letter-spacing: .2em; text-transform: uppercase;
-  color: rgba(255,255,255,.38); margin-bottom: 4vh;
-}
+/* ── SLIDE 1: COVER ── */
+.s1-inner { width: 100%; display: flex; flex-direction: column; gap: 4vh; }
+.s1-tag { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.35); }
 .s1-tag-line { width: 24px; height: 1px; background: #C8102E; flex-shrink: 0; }
-.s1-h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(60px,9.5vw,130px);
-  font-weight: 700; color: #fff;
-  line-height: .95; letter-spacing: -.02em;
-  margin-bottom: 5vh;
-}
+.s1-logo { position: absolute; top: 28px; right: 36px; font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.22); }
+.s1-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(64px, 9.5vw, 136px); font-weight: 700; color: #fff; line-height: .93; letter-spacing: -.02em; }
 .s1-h1 em { display: block; font-style: italic; color: rgba(255,255,255,.38); }
-.s1-rule { width: 100%; height: 1px; background: rgba(255,255,255,.1); margin-bottom: 3vh; }
+.s1-rule { width: 100%; height: 1px; background: rgba(255,255,255,.1); }
 .s1-bottom { display: flex; justify-content: space-between; align-items: center; }
-.s1-presenter { font-size: clamp(13px,1.2vw,16px); font-weight: 500; color: rgba(255,255,255,.6); }
-.s1-src { font-size: clamp(9px,.78vw,11px); color: rgba(255,255,255,.22); letter-spacing: .05em; }
+.s1-presenter { font-size: clamp(13px, 1.2vw, 17px); font-weight: 400; color: rgba(255,255,255,.55); }
+.s1-src { font-size: clamp(9px, .8vw, 11px); color: rgba(255,255,255,.2); letter-spacing: .05em; }
 
-/* ════════════════════════════════════
-   SLIDE 2: ABOUT ME
-   Full bleed split — no padding on .slide
-════════════════════════════════════ */
-#s2 { flex-direction: row; }
+/* ── SLIDE 2: INTRO ── */
+.intro-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; width: 100%; height: 82vh; }
+.intro-left { background: #0e0204; border-radius: 12px; padding: 5vh 3.5vw; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,.4); }
+.intro-glow { position: absolute; top: -10%; right: -5%; width: 55%; height: 60%; background: radial-gradient(ellipse, rgba(200,16,46,.15) 0%, transparent 70%); pointer-events: none; }
+.intro-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; margin-bottom: 1.5vh; }
+.intro-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 4vw, 56px); font-weight: 700; color: #fff; line-height: 1; margin-bottom: .4vh; }
+.intro-role { font-size: clamp(10px, .95vw, 13px); font-weight: 600; color: #C8102E; letter-spacing: .04em; margin-bottom: 2.5vh; }
+.intro-bio { font-size: clamp(13px, 1.28vw, 17px); font-weight: 300; color: rgba(255,255,255,.62); line-height: 1.85; }
+.intro-qbar { border-left: 3px solid #C8102E; padding: 1.3vh 1.3vw; margin-top: 2.5vh; }
+.intro-qt { font-family: 'Cormorant Garamond', serif; font-size: clamp(13px, 1.28vw, 17px); font-style: italic; color: rgba(255,255,255,.68); line-height: 1.52; margin-bottom: .5vh; }
+.intro-qa { font-size: clamp(9px, .85vw, 12px); font-weight: 700; color: #C8102E; }
+.intro-right { display: flex; flex-direction: column; justify-content: space-between; gap: 1.5vh; }
+.pill { flex: 1; background: #fff; border: 1px solid rgba(200,16,46,.1); border-radius: 10px; padding: 0 2vw; display: flex; align-items: center; gap: 2vw; box-shadow: 0 2px 16px rgba(0,0,0,.07); }
+.pill-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.2vw, 46px); font-weight: 700; color: #C8102E; line-height: 1; min-width: 5.5vw; flex-shrink: 0; }
+.pill-text { font-size: clamp(12px, 1.1vw, 15px); color: #444; line-height: 1.5; }
+.pill-text strong { color: #0e0204; font-weight: 600; }
 
-.s2-left {
-  width: 48%; height: 100%;
-  background: #0e0204;
-  padding: 7vh 4vw 7vh 5.5vw;
-  display: flex; flex-direction: column; justify-content: center;
-  position: relative; overflow: hidden; flex-shrink: 0;
-}
-.s2-glow {
-  position: absolute; top: -10%; right: -5%; width: 55%; height: 60%;
-  background: radial-gradient(ellipse, rgba(200,16,46,.16) 0%, transparent 70%);
-  pointer-events: none;
-}
-.s2-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; margin-bottom: 1.5vh; }
-.s2-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px,4vw,58px); font-weight: 700; color: #fff; line-height: 1; margin-bottom: .5vh; }
-.s2-role { font-size: clamp(10px,.95vw,13px); font-weight: 600; color: #C8102E; letter-spacing: .04em; margin-bottom: 3vh; }
-.s2-bio { font-size: clamp(13px,1.25vw,17px); font-weight: 300; color: rgba(255,255,255,.62); line-height: 1.85; }
-.s2-qbar { border-left: 3px solid #C8102E; padding: 1.3vh 1.4vw; margin-top: 3vh; }
-.s2-qt { font-family: 'Cormorant Garamond', serif; font-size: clamp(13px,1.25vw,17px); font-style: italic; color: rgba(255,255,255,.68); line-height: 1.52; margin-bottom: .5vh; }
-.s2-qa { font-size: clamp(9px,.85vw,12px); font-weight: 700; color: #C8102E; }
+/* ── SLIDE 3: WHAT IS ── */
+.what-wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 5vw; width: 100%; height: 82vh; }
+.what-left { display: flex; flex-direction: column; justify-content: center; }
+.what-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; margin-bottom: 1.5vh; }
+.what-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 56px); font-weight: 700; color: #0e0204; line-height: 1.06; margin-bottom: 2.5vh; }
+.what-body { font-size: clamp(14px, 1.38vw, 19px); font-weight: 300; color: #333; line-height: 1.85; margin-bottom: 3vh; }
+.what-quote { background: #fdf4f5; border-left: 4px solid #C8102E; padding: 1.8vh 1.6vw; border-radius: 0 8px 8px 0; }
+.what-qt { font-family: 'Cormorant Garamond', serif; font-size: clamp(14px, 1.42vw, 20px); font-style: italic; color: #0e0204; line-height: 1.52; margin-bottom: .6vh; }
+.what-qa { font-size: clamp(9px, .86vw, 12px); font-weight: 700; color: #C8102E; }
+.what-qr { font-size: clamp(9px, .78vw, 11px); color: #888; margin-top: 2px; }
+.what-right { display: flex; flex-direction: column; justify-content: center; gap: 1.2vh; }
+.fact { background: #fff; border: 1px solid #ede7e1; border-left: 3px solid #C8102E; border-radius: 0 8px 8px 0; padding: 1.5vh 1.3vw; box-shadow: 0 2px 12px rgba(0,0,0,.05); }
+.fact-lbl { font-size: clamp(9px, .82vw, 11px); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #C8102E; margin-bottom: .4vh; }
+.fact-val { font-size: clamp(13px, 1.22vw, 17px); color: #0e0204; font-weight: 500; line-height: 1.46; }
 
-.s2-right {
-  flex: 1; height: 100%;
-  background: #f5f1ee;
-  padding: 7vh 5vw 7vh 4.5vw;
-  display: flex; flex-direction: column; justify-content: center; gap: 1.6vh;
-}
-.s2-pill {
-  background: #fff; border: 1px solid rgba(200,16,46,.12);
-  border-radius: 8px; padding: 2.2vh 2vw;
-  display: flex; align-items: center; gap: 2vw;
-  box-shadow: 0 2px 14px rgba(0,0,0,.07); flex: 1; max-height: 22%;
-}
-.s2-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px,3.2vw,48px); font-weight: 700; color: #C8102E; line-height: 1; min-width: 5.5vw; flex-shrink: 0; }
-.s2-txt { font-size: clamp(12px,1.05vw,15px); color: #444; line-height: 1.5; }
-.s2-txt strong { color: #0e0204; font-weight: 600; }
+/* ── SLIDE 4: WHAT IT DOES ── */
+.does-wrap { width: 100%; display: flex; flex-direction: column; gap: 3vh; }
+.does-hdr { display: flex; justify-content: space-between; align-items: flex-end; }
+.does-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.42); }
+.does-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 52px); font-weight: 700; color: #fff; line-height: 1; }
+.does-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5vw; }
+.does-card { background: rgba(255,255,255,.065); border: 1px solid rgba(255,255,255,.1); border-top: 3px solid #C8102E; border-radius: 8px; padding: 3.5vh 2vw; }
+.does-big { font-family: 'Cormorant Garamond', serif; font-size: clamp(50px, 6.2vw, 88px); font-weight: 700; color: #C8102E; line-height: 1; margin-bottom: 1.5vh; }
+.does-title { font-size: clamp(13px, 1.25vw, 17px); font-weight: 600; color: #fff; margin-bottom: .8vh; }
+.does-sub { font-size: clamp(11px, 1.05vw, 14px); color: rgba(255,255,255,.52); line-height: 1.68; }
 
-/* ════════════════════════════════════
-   SLIDE 3: WHAT IS REGENETEN
-   Full bleed split
-════════════════════════════════════ */
-#s3 { flex-direction: row; }
+/* ── SLIDE 5: HOW IT WORKS ── */
+.how-wrap { width: 100%; display: flex; flex-direction: column; gap: 4vh; }
+.how-hdr { }
+.how-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; margin-bottom: 1.2vh; }
+.how-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 52px); font-weight: 700; color: #0e0204; line-height: 1; }
+.how-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 2.5vw; }
+.how-step { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
+.how-conn { position: absolute; top: clamp(23px,2.6vw,36px); left: 50%; width: 100%; height: 1px; background: linear-gradient(90deg,rgba(200,16,46,.45),rgba(200,16,46,.08)); z-index: 0; }
+.how-step:last-child .how-conn { display: none; }
+.how-num { width: clamp(46px,5.2vw,70px); height: clamp(46px,5.2vw,70px); border-radius: 50%; background: #C8102E; color: #fff; font-family: 'Cormorant Garamond', serif; font-size: clamp(20px,2.4vw,32px); font-weight: 700; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; margin-bottom: 2vh; flex-shrink: 0; box-shadow: 0 6px 22px rgba(200,16,46,.38); }
+.how-title { font-size: clamp(13px, 1.28vw, 17px); font-weight: 600; color: #0e0204; margin-bottom: .8vh; }
+.how-body { font-size: clamp(11px, 1.05vw, 14px); color: #666; line-height: 1.72; }
+.how-key { background: #fff; border: 1px solid #ede7e1; border-left: 4px solid #C8102E; border-radius: 0 8px 8px 0; padding: 1.5vh 2vw; font-size: clamp(13px, 1.25vw, 17px); color: #0e0204; line-height: 1.65; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
 
-.s3-left {
-  flex: 1.15; height: 100%;
-  background: #fff;
-  padding: 7vh 4vw 7vh 5.5vw;
-  display: flex; flex-direction: column; justify-content: center;
-  border-right: 1px solid #ede7e1;
-}
-.s3-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; margin-bottom: 1.5vh; }
-.s3-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px,3.8vw,54px); font-weight: 700; color: #0e0204; line-height: 1.06; margin-bottom: 2.5vh; }
-.s3-body { font-size: clamp(13px,1.32vw,18px); font-weight: 300; color: #333; line-height: 1.85; margin-bottom: 3vh; }
-.s3-quote { background: #fdf4f5; border-left: 4px solid #C8102E; padding: 1.6vh 1.5vw; border-radius: 0 8px 8px 0; }
-.s3-qt { font-family: 'Cormorant Garamond', serif; font-size: clamp(14px,1.4vw,20px); font-style: italic; color: #0e0204; line-height: 1.5; margin-bottom: .6vh; }
-.s3-qa { font-size: 11px; font-weight: 700; color: #C8102E; }
-.s3-qr { font-size: 10px; color: #888; margin-top: 2px; }
-
-.s3-right {
-  flex: .85; height: 100%;
-  background: #fff;
-  padding: 7vh 5vw 7vh 3.5vw;
-  display: flex; flex-direction: column; justify-content: center; gap: 1.2vh;
-}
-.s3-fact {
-  background: #faf8f6; border: 1px solid #ede7e1;
-  border-left: 3px solid #C8102E; border-radius: 0 8px 8px 0;
-  padding: 1.6vh 1.3vw; flex: 1;
-  display: flex; flex-direction: column; justify-content: center;
-}
-.s3-fl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #C8102E; margin-bottom: .4vh; }
-.s3-fv { font-size: clamp(12px,1.15vw,16px); color: #0e0204; font-weight: 500; line-height: 1.45; }
-
-/* ════════════════════════════════════
-   SLIDE 4: WHAT IT DOES
-════════════════════════════════════ */
-#s4 {
-  flex-direction: column;
-  padding: 6vh 6vw;
-}
-.s4-top { display: flex; justify-content: space-between; align-items: flex-end; width: 100%; margin-bottom: 3.5vh; flex-shrink: 0; }
-.s4-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.45); }
-.s4-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,3.5vw,50px); font-weight: 700; color: #fff; line-height: 1; }
-.s4-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.4vw; width: 100%; flex: 1; }
-.s4-card {
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-  border-top: 3px solid #C8102E; border-radius: 8px;
-  padding: 3.5vh 2vw;
-  display: flex; flex-direction: column; justify-content: flex-start;
-}
-.s4-big { font-family: 'Cormorant Garamond', serif; font-size: clamp(50px,6.2vw,88px); font-weight: 700; color: #C8102E; line-height: 1; margin-bottom: 1.5vh; }
-.s4-title { font-size: clamp(13px,1.2vw,17px); font-weight: 600; color: #fff; margin-bottom: .8vh; }
-.s4-sub { font-size: clamp(11px,1.0vw,14px); color: rgba(255,255,255,.52); line-height: 1.65; }
-
-/* ════════════════════════════════════
-   SLIDE 5: HOW IT WORKS
-════════════════════════════════════ */
-#s5 {
-  flex-direction: column;
-  padding: 6vh 6vw;
-}
-.s5-top { width: 100%; margin-bottom: 4vh; flex-shrink: 0; }
-.s5-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; margin-bottom: 1.2vh; }
-.s5-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px,3.8vw,54px); font-weight: 700; color: #0e0204; line-height: 1; }
-.s5-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 2vw; width: 100%; flex: 1; margin-bottom: 3vh; }
-.s5-step {
-  display: flex; flex-direction: column; align-items: center;
-  text-align: center; position: relative;
-}
-.s5-conn {
-  position: absolute; top: clamp(20px,2.4vw,32px); left: 50%;
-  width: 100%; height: 1px;
-  background: linear-gradient(90deg, rgba(200,16,46,.5), rgba(200,16,46,.08));
-  z-index: 0;
-}
-.s5-step:last-child .s5-conn { display: none; }
-.s5-num {
-  width: clamp(44px,4.8vw,64px); height: clamp(44px,4.8vw,64px);
-  border-radius: 50%; background: #C8102E; color: #fff;
-  font-family: 'Cormorant Garamond', serif; font-size: clamp(20px,2.2vw,30px); font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  position: relative; z-index: 1; margin-bottom: 2vh;
-  box-shadow: 0 6px 20px rgba(200,16,46,.35);
-  flex-shrink: 0;
-}
-.s5-title { font-size: clamp(13px,1.2vw,16px); font-weight: 600; color: #0e0204; margin-bottom: .8vh; }
-.s5-body { font-size: clamp(11px,1.0vw,14px); color: #666; line-height: 1.68; }
-.s5-key {
-  background: #fff; border: 1px solid #ede7e1; border-left: 4px solid #C8102E;
-  border-radius: 0 8px 8px 0; padding: 1.5vh 2vw; flex-shrink: 0;
-  font-size: clamp(12px,1.15vw,16px); color: #0e0204; line-height: 1.65;
-  box-shadow: 0 2px 12px rgba(0,0,0,.06);
-}
-
-/* ════════════════════════════════════
-   SLIDE 6: CLINICAL EVIDENCE
-════════════════════════════════════ */
-#s6 {
-  flex-direction: column;
-  padding: 6vh 6vw;
-}
-.s6-top { display: flex; justify-content: space-between; align-items: flex-end; width: 100%; margin-bottom: 3vh; flex-shrink: 0; }
-.s6-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; }
-.s6-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px,3.2vw,46px); font-weight: 700; color: #0e0204; line-height: 1; }
-.s6-rct { background: #fff; border: 1px solid #ede7e1; border-radius: 12px; padding: 3vh 3vw; box-shadow: 0 4px 28px rgba(0,0,0,.08); flex: 1; display: flex; flex-direction: column; }
-.s6-lbl { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #bbb; margin-bottom: 2vh; flex-shrink: 0; }
-.s6-cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 2vw; flex: 1; margin-bottom: 2vh; }
-.cbox { border-radius: 8px; padding: 3vh 2vw; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.cbox.g { background: linear-gradient(150deg,#f0fdf4,#eafaf0); border: 1px solid #86efac; }
-.cbox.b { background: linear-gradient(150deg,#fff1f2,#fde8ea); border: 1px solid #fca5a5; }
-.cbox-n { font-family: 'Cormorant Garamond', serif; font-size: clamp(64px,9vw,124px); font-weight: 700; line-height: 1; margin-bottom: .5vh; }
+/* ── SLIDE 6: CLINICAL ── */
+.clin-wrap { width: 100%; display: flex; flex-direction: column; gap: 2.5vh; }
+.clin-hdr { display: flex; justify-content: space-between; align-items: flex-end; }
+.clin-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; }
+.clin-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 52px); font-weight: 700; color: #0e0204; line-height: 1; }
+.clin-rct { background: #fff; border: 1px solid #ede7e1; border-radius: 12px; padding: 3vh 3vw; box-shadow: 0 4px 28px rgba(0,0,0,.08); display: flex; flex-direction: column; gap: 2vh; }
+.clin-lbl { font-size: clamp(9px, .8vw, 11px); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #bbb; }
+.clin-cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 2vw; }
+.cbox { border-radius: 10px; padding: 3.5vh 2vw; text-align: center; }
+.cbox.g { background: linear-gradient(150deg,#f0fdf4,#eafaf0); border: 1.5px solid #86efac; }
+.cbox.b { background: linear-gradient(150deg,#fff1f2,#fde8ea); border: 1.5px solid #fca5a5; }
+.cbox-n { font-family: 'Cormorant Garamond', serif; font-size: clamp(68px, 9.5vw, 132px); font-weight: 700; line-height: 1; margin-bottom: .8vh; }
 .cbox.g .cbox-n { color: #15803d; }
 .cbox.b .cbox-n { color: #dc2626; }
-.cbox-l { font-size: clamp(12px,1.1vw,15px); color: #444; line-height: 1.5; }
-.s6-footer { background: #f0fdf4; border-radius: 6px; padding: 1.2vh 1.5vw; font-size: clamp(11px,1.0vw,14px); color: #15803d; font-weight: 600; margin-bottom: 1.5vh; flex-shrink: 0; }
-.s6-extras { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5vw; flex-shrink: 0; }
-.rxt { background: #fafaf8; border: 1px solid #ede7e1; border-radius: 6px; padding: 1.4vh 1vw; text-align: center; }
-.rxt-n { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px,2.6vw,36px); font-weight: 700; color: #C8102E; line-height: 1; margin-bottom: .3vh; }
-.rxt-l { font-size: clamp(9px,.88vw,12px); color: #777; line-height: 1.4; }
+.cbox-l { font-size: clamp(13px, 1.2vw, 16px); color: #444; line-height: 1.5; }
+.clin-footer { background: #f0fdf4; border-radius: 6px; padding: 1.3vh 1.8vw; font-size: clamp(12px, 1.1vw, 15px); color: #15803d; font-weight: 600; }
+.clin-extras { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5vw; }
+.rxt { background: #fafaf8; border: 1px solid #ede7e1; border-radius: 8px; padding: 1.5vh 1.2vw; text-align: center; }
+.rxt-n { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 2.8vw, 38px); font-weight: 700; color: #C8102E; line-height: 1; margin-bottom: .4vh; }
+.rxt-l { font-size: clamp(10px, .92vw, 13px); color: #777; line-height: 1.4; }
 
-/* ════════════════════════════════════
-   SLIDE 7: WHY IT MATTERS
-════════════════════════════════════ */
-#s7 {
-  flex-direction: column;
-  padding: 6vh 6vw;
-  position: relative; overflow: hidden;
-}
-#s7::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 100% 100%, rgba(0,0,0,.2) 0%, transparent 60%),
-              radial-gradient(ellipse at 0% 0%, rgba(255,255,255,.06) 0%, transparent 50%);
-  pointer-events: none;
-}
-.s7-top { display: flex; justify-content: space-between; align-items: flex-end; width: 100%; margin-bottom: 3vh; flex-shrink: 0; position: relative; }
-.s7-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.55); }
-.s7-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px,3.2vw,46px); font-weight: 700; color: #fff; line-height: 1; }
-.s7-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5vw; width: 100%; flex: 1; margin-bottom: 2.5vh; position: relative; }
-.s7-card {
-  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
-  border-radius: 8px; padding: 2.8vh 2vw;
-  display: flex; flex-direction: column;
-}
-.s7-ct { font-size: clamp(14px,1.45vw,20px); font-weight: 700; color: #fff; margin-bottom: 1.8vh; padding-bottom: 1.4vh; border-bottom: 1px solid rgba(255,255,255,.2); flex-shrink: 0; }
-.s7-pts { list-style: none; flex: 1; }
-.s7-pts li { font-size: clamp(12px,1.1vw,15px); color: rgba(255,255,255,.75); line-height: 1.78; padding-left: 1.2vw; position: relative; margin-bottom: .3vh; }
-.s7-pts li::before { content: ''; width: 4px; height: 4px; background: rgba(255,255,255,.55); border-radius: 50%; position: absolute; left: 0; top: .58em; }
-.s7-note { border-left: 3px solid rgba(255,255,255,.35); padding: 1vh 1.4vw; font-size: clamp(12px,1.1vw,15px); font-style: italic; color: rgba(255,255,255,.65); line-height: 1.7; flex-shrink: 0; position: relative; }
+/* ── SLIDE 7: WHY ── */
+.why-wrap { width: 100%; display: flex; flex-direction: column; gap: 2.5vh; }
+.why-hdr { display: flex; justify-content: space-between; align-items: flex-end; }
+.why-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.52); }
+.why-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 52px); font-weight: 700; color: #fff; line-height: 1; }
+.why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.6vw; }
+.why-card { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 2.8vh 2vw; }
+.why-ct { font-size: clamp(15px, 1.5vw, 21px); font-weight: 700; color: #fff; margin-bottom: 1.6vh; padding-bottom: 1.4vh; border-bottom: 1px solid rgba(255,255,255,.2); }
+.why-pts { list-style: none; }
+.why-pts li { font-size: clamp(12px, 1.18vw, 16px); color: rgba(255,255,255,.78); line-height: 1.75; padding-left: 1.2vw; position: relative; margin-bottom: .4vh; }
+.why-pts li::before { content: ''; width: 4px; height: 4px; background: rgba(255,255,255,.5); border-radius: 50%; position: absolute; left: 0; top: .6em; }
+.why-note { border-left: 3px solid rgba(255,255,255,.32); padding: 1vh 1.4vw; font-size: clamp(12px, 1.18vw, 16px); font-style: italic; color: rgba(255,255,255,.65); line-height: 1.7; }
 
-/* ════════════════════════════════════
-   SLIDE 8: CLOSE
-════════════════════════════════════ */
-#s8 {
-  flex-direction: column;
-  padding: 6vh 6vw;
-}
-.s8-top { margin-bottom: 2.5vh; flex-shrink: 0; }
-.s8-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.38); margin-bottom: 1.2vh; }
-.s8-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px,4vw,58px); font-weight: 700; color: #fff; line-height: 1.04; }
-.s8-body { font-size: clamp(15px,1.6vw,22px); font-weight: 300; color: rgba(255,255,255,.72); line-height: 1.9; flex: 1; display: flex; align-items: center; }
-.s8-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2vw; width: 100%; flex-shrink: 0; }
-.s8-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.11); border-top: 2px solid #C8102E; border-radius: 6px; padding: 2vh 1.5vw; }
-.s8-ct { font-size: clamp(11px,1.05vw,14px); font-weight: 700; color: #fff; margin-bottom: .5vh; }
-.s8-cb { font-size: clamp(10px,.92vw,13px); color: rgba(255,255,255,.5); line-height: 1.62; }
+/* ── SLIDE 8: CLOSE ── */
+.close-wrap { width: 100%; display: flex; flex-direction: column; gap: 3vh; }
+.close-hdr { }
+.close-ey { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 1.2vh; }
+.close-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4.2vw, 60px); font-weight: 700; color: #fff; line-height: 1.04; }
+.close-body { font-size: clamp(15px, 1.6vw, 22px); font-weight: 300; color: rgba(255,255,255,.7); line-height: 1.9; }
+.close-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.4vw; }
+.close-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-top: 2px solid #C8102E; border-radius: 8px; padding: 2vh 1.6vw; }
+.close-ct { font-size: clamp(12px, 1.1vw, 15px); font-weight: 700; color: #fff; margin-bottom: .6vh; }
+.close-cb { font-size: clamp(10px, .95vw, 13px); color: rgba(255,255,255,.5); line-height: 1.62; }
+
+/* ── NAV ── */
+.prog { position: fixed; bottom: 0; left: 0; height: 2px; background: #C8102E; transition: width .35s ease; z-index: 300; }
+.dots { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 300; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.22); border: none; cursor: pointer; transition: all .2s; outline: none; }
+.dot.active { background: #fff; width: 18px; border-radius: 3px; }
+.arrs { position: fixed; bottom: 13px; right: 22px; display: flex; gap: 7px; z-index: 300; }
+.arr { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15); color: #fff; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; outline: none; transition: background .2s; }
+.arr:hover { background: rgba(255,255,255,.15); }
+
+/* ── SLIDE 5 GIF LAYOUT ── */
+.how-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; width: 100%; }
+.how-gif-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.how-gif { width: 100%; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,.15); }
+.how-gif-cap { font-size: 10px; color: #aaa; margin-top: 8px; letter-spacing: .04em; }
+.how-right { display: flex; flex-direction: column; gap: 3vh; justify-content: center; }
 </style>
 </head>
 <body>
 <div class="deck">
 
-<!-- 1: COVER -->
+<!-- 1 COVER -->
 <div class="slide t-dark active" id="s1">
-  <div class="s1-tag"><span class="s1-tag-line"></span>Product Presentation &bull; Smith + Nephew</div>
-  <h1 class="s1-h1">REGENETEN<em>Bioinductive Implant</em></h1>
-  <div class="s1-rule"></div>
-  <div class="s1-bottom">
-    <div class="s1-presenter">Athan Skedros &nbsp;&bull;&nbsp; University of Utah, Finance &nbsp;&bull;&nbsp; May 2026</div>
-    <div class="s1-src">smithandnephew.com/healthcare-professionals</div>
+  <span class="s1-logo">Smith + Nephew</span>
+  <div class="s1-inner">
+    <div class="s1-tag"><span class="s1-tag-line"></span>Product Presentation</div>
+    <h1 class="s1-h1">REGENETEN<em>Bioinductive Implant</em></h1>
+    <div class="s1-rule"></div>
+    <div class="s1-bottom">
+      <span class="s1-presenter">Athan Skedros &bull; University of Utah, Finance &bull; May 2026</span>
+      <span class="s1-src">smithandnephew.com/healthcare-professionals</span>
+    </div>
   </div>
 </div>
 
-<!-- 2: ABOUT ME -->
+<!-- 2 ABOUT ME -->
 <div class="slide t-off" id="s2">
-  <div class="s2-left">
-    <div class="s2-glow"></div>
-    <div class="s2-eyebrow">About Me</div>
-    <div class="s2-name">Athan Skedros</div>
-    <div class="s2-role">Finance Senior &bull; University of Utah &bull; May 2026 &bull; 3.75 GPA</div>
-    <p class="s2-bio">I am finishing my finance degree at the University of Utah this May. My background is in B2B outbound sales and I grew up around medicine and the OR with my father, a fellowship-trained orthopedic surgeon here in Salt Lake City. I always knew this world was for me. I have spent my career building the skills to be a genuine resource in it.</p>
-    <div class="s2-qbar">
-      <div class="s2-qt">Med device sales is not about selling. It is about being a partner, a trusted resource, and a bridge across the continuum of care.</div>
-      <div class="s2-qa">That is the rep I am building toward.</div>
+  <div class="intro-wrap">
+    <div class="intro-left">
+      <div class="intro-glow"></div>
+      <div class="intro-ey">About Me</div>
+      <div class="intro-name">Athan Skedros</div>
+      <div class="intro-role">Finance Senior &bull; University of Utah &bull; May 2026 &bull; 3.75 GPA</div>
+      <p class="intro-bio">I am finishing my finance degree at the University of Utah this May. My background is in B2B outbound sales and I grew up around medicine and the OR with my father, a fellowship-trained orthopedic surgeon here in Salt Lake City. I always knew this world was for me. I have spent my career building the skills to be a genuine resource in it.</p>
+      <div class="intro-qbar">
+        <div class="intro-qt">Med device sales is not about selling. It is about being a partner, a trusted resource, and a bridge across the continuum of care.</div>
+        <div class="intro-qa">That is the rep I am building toward.</div>
+      </div>
     </div>
-  </div>
-  <div class="s2-right">
-    <div class="s2-pill"><div class="s2-num">140+</div><div class="s2-txt">Cold calls daily for 3 months at <strong>Americas Capital Finance</strong></div></div>
-    <div class="s2-pill"><div class="s2-num">75%</div><div class="s2-txt">Increase in opportunity creation across <strong>23 reps in 9 months</strong></div></div>
-    <div class="s2-pill"><div class="s2-num">245pg</div><div class="s2-txt">Sales training manual deployed to <strong>50 reps</strong> firm-wide</div></div>
-    <div class="s2-pill"><div class="s2-num">$15M</div><div class="s2-txt">Largest of 7 closed deals I supported <strong>end-to-end</strong></div></div>
+    <div class="intro-right">
+      <div class="pill"><div class="pill-num">140+</div><div class="pill-text">Cold calls daily for 3 months at <strong>Americas Capital Finance</strong></div></div>
+      <div class="pill"><div class="pill-num">75%</div><div class="pill-text">Increase in opportunity creation across <strong>23 reps in 9 months</strong></div></div>
+      <div class="pill"><div class="pill-num">245pg</div><div class="pill-text">Sales training manual deployed to <strong>50 reps</strong> firm-wide</div></div>
+      <div class="pill"><div class="pill-num">$15M</div><div class="pill-text">Largest of 7 closed deals I supported <strong>end-to-end</strong></div></div>
+    </div>
   </div>
 </div>
 
-<!-- 3: WHAT IS REGENETEN -->
+<!-- 3 WHAT IS REGENETEN -->
 <div class="slide t-white" id="s3">
-  <div class="s3-left">
-    <div class="s3-eyebrow">What Is REGENETEN</div>
-    <h2 class="s3-h2">A scaffold that tells<br>the body to heal itself</h2>
-    <p class="s3-body">A scaffold made from highly purified type I collagen fibers derived from bovine Achilles tendon. About the size of a postage stamp. Placed on the bursal surface of the rotator cuff, it is resorbed and replaced by new tendon-like tissue within 6 months. REGENETEN is not a patch and it is not a graft.</p>
-    <div class="s3-quote">
-      <div class="s3-qt">"REGENETEN is restorative, not reparative. If you believe in biology, this is a big step."</div>
-      <div class="s3-qa">Felix H. "Buddy" Savoie III, MD</div>
-      <div class="s3-qr">Chairman of Orthopaedic Surgery, Chief of Sports Medicine, Tulane University School of Medicine</div>
+  <div class="what-wrap">
+    <div class="what-left">
+      <div class="what-ey">What Is REGENETEN</div>
+      <h2 class="what-h2">A scaffold that tells<br>the body to heal itself</h2>
+      <p class="what-body">A scaffold made from highly purified type I collagen fibers derived from bovine Achilles tendon. About the size of a postage stamp. Placed on the bursal surface of the rotator cuff, it is resorbed and replaced by new tendon-like tissue within 6 months. REGENETEN is not a patch and it is not a graft.</p>
+      <div class="what-quote">
+        <div class="what-qt">"REGENETEN is restorative, not reparative. If you believe in biology, this is a big step."</div>
+        <div class="what-qa">Felix H. "Buddy" Savoie III, MD</div>
+        <div class="what-qr">Chairman of Orthopaedic Surgery, Chief of Sports Medicine, Tulane University School of Medicine</div>
+      </div>
     </div>
-  </div>
-  <div class="s3-right">
-    <div class="s3-fact"><div class="s3-fl">Not a patch or graft</div><div class="s3-fv">A bioinductive scaffold. The body generates its own new tendon-like tissue.</div></div>
-    <div class="s3-fact"><div class="s3-fl">Delivery</div><div class="s3-fv">Arthroscopic, suture-free. Tissue and bone anchors. Mean 13.9 minutes.</div></div>
-    <div class="s3-fact"><div class="s3-fl">High porosity design</div><div class="s3-fv">Swells on hydration allowing blood vessel integration and fibroblast ingrowth.</div></div>
-    <div class="s3-fact"><div class="s3-fl">Track record</div><div class="s3-fv">150,000+ patients globally. 10+ years of clinical use in rotator cuff repair.</div></div>
+    <div class="what-right">
+      <div class="fact"><div class="fact-lbl">Not a patch or graft</div><div class="fact-val">A bioinductive scaffold. The body generates its own new tendon-like tissue.</div></div>
+      <div class="fact"><div class="fact-lbl">Delivery</div><div class="fact-val">Arthroscopic, suture-free. Tissue and bone anchors. Mean 13.9 minutes.</div></div>
+      <div class="fact"><div class="fact-lbl">High porosity design</div><div class="fact-val">Swells on hydration allowing blood vessel integration and fibroblast ingrowth.</div></div>
+      <div class="fact"><div class="fact-lbl">Track record</div><div class="fact-val">150,000+ patients globally. 10+ years of clinical use in rotator cuff repair.</div></div>
+    </div>
   </div>
 </div>
 
-<!-- 4: WHAT IT DOES -->
+<!-- 4 WHAT IT DOES -->
 <div class="slide t-dark" id="s4">
-  <div class="s4-top">
-    <div class="s4-ey">What It Does</div>
-    <h2 class="s4-h2">Four clinically proven outcomes</h2>
-  </div>
-  <div class="s4-grid">
-    <div class="s4-card"><div class="s4-big">~2mm</div><div class="s4-title">New tendon-like tissue</div><div class="s4-sub">Formed within 6 months as the scaffold is fully resorbed and replaced by the body's own biology.</div></div>
-    <div class="s4-card"><div class="s4-big">3x</div><div class="s4-title">Lower re-tear risk at 1 year</div><div class="s4-sub">vs standard repair alone in medium-to-large full-thickness tears. 8.3% vs 25.8%. p=0.0106.</div></div>
-    <div class="s4-card"><div class="s4-big">65%</div><div class="s4-title">Relative risk reduction at 2 years</div><div class="s4-sub">12.3% vs 35.1% re-tear rate at 2-year follow-up. RR=0.35. p=0.004. Ruiz Iban et al., 2025.</div></div>
-    <div class="s4-card"><div class="s4-big" style="font-size:clamp(38px,4.8vw,68px);">13.9<span style="font-size:.5em">min</span></div><div class="s4-title">Suture-free procedure</div><div class="s4-sub">Proprietary delivery and fixation system. Efficient integration into existing surgical workflow.</div></div>
+  <div class="does-wrap">
+    <div class="does-hdr">
+      <span class="does-ey">What It Does</span>
+      <h2 class="does-h2">Four clinically proven outcomes</h2>
+    </div>
+    <div class="does-grid">
+      <div class="does-card"><div class="does-big">~2mm</div><div class="does-title">New tendon-like tissue</div><div class="does-sub">Formed within 6 months as the scaffold is fully resorbed and replaced by the body's own biology.</div></div>
+      <div class="does-card"><div class="does-big">3x</div><div class="does-title">Lower re-tear risk at 1 year</div><div class="does-sub">vs standard repair alone in medium-to-large full-thickness tears. 8.3% vs 25.8%. p=0.0106.</div></div>
+      <div class="does-card"><div class="does-big">65%</div><div class="does-title">Relative risk reduction at 2 years</div><div class="does-sub">12.3% vs 35.1% re-tear rate at 2-year follow-up. RR=0.35. p=0.004. Ruiz Iban et al., 2025.</div></div>
+      <div class="does-card"><div class="does-big" style="font-size:clamp(42px,5.2vw,74px);">13.9<span style="font-size:.52em">min</span></div><div class="does-title">Suture-free procedure</div><div class="does-sub">Proprietary delivery and fixation system. Efficient integration into existing surgical workflow.</div></div>
+    </div>
   </div>
 </div>
 
-<!-- 5: HOW IT WORKS -->
+<!-- 5 HOW IT WORKS -->
 <div class="slide t-off" id="s5">
-  <div class="s5-top">
-    <div class="s5-ey">How It Works</div>
-    <h2 class="s5-h2">From implant to new tissue in 6 months</h2>
+  <div class="how-wrap">
+    <div class="how-hdr">
+      <div class="how-ey">How It Works</div>
+      <h2 class="how-h2">From implant to new tissue in 6 months</h2>
+    </div>
+    <div class="how-content">
+      <div class="how-gif-wrap">
+        <img src="regeneten.gif" alt="REGENETEN mechanism of action" class="how-gif" />
+        <div class="how-gif-cap">Source: smithandnephew.com</div>
+      </div>
+      <div class="how-right">
+        <div class="how-steps">
+          <div class="how-step"><div class="how-conn"></div><div class="how-num">1</div><div class="how-title">Placed on the bursal surface</div><div class="how-body">Arthroscopic. Tissue and bone anchors. Suture-free. Mean 13.9 minutes.</div></div>
+          <div class="how-step"><div class="how-conn"></div><div class="how-num">2</div><div class="how-title">Scaffold signals biology</div><div class="how-body">High porosity swells on contact with blood. Blood vessel integration and fibroblast ingrowth begin.</div></div>
+          <div class="how-step"><div class="how-conn"></div><div class="how-num">3</div><div class="how-title">Implant is resorbed</div><div class="how-body">Completely resorbed within 6 months. No foreign material remains.</div></div>
+          <div class="how-step"><div class="how-conn"></div><div class="how-num">4</div><div class="how-title">New tissue remains</div><div class="how-body">~2mm new tendon-like tissue. Durable at 5 years in 73% of patients.</div></div>
+        </div>
+        <div class="how-key"><strong style="color:#C8102E;">Two applications:</strong> Isolated treatment for partial-thickness tears, or augment over standard repair for full-thickness tears. Restorative, not reparative.</div>
+      </div>
+    </div>
   </div>
-  <div class="s5-steps">
-    <div class="s5-step"><div class="s5-conn"></div><div class="s5-num">1</div><div class="s5-title">Placed on the bursal surface</div><div class="s5-body">Attached arthroscopically over the rotator cuff using tissue and bone anchors. Suture-free. Mean 13.9 minutes.</div></div>
-    <div class="s5-step"><div class="s5-conn"></div><div class="s5-num">2</div><div class="s5-title">Scaffold signals biology</div><div class="s5-body">High porosity design swells, allowing blood vessel integration, fibroblast ingrowth, and new collagen formation.</div></div>
-    <div class="s5-step"><div class="s5-conn"></div><div class="s5-num">3</div><div class="s5-title">Implant is fully resorbed</div><div class="s5-body">Over approximately 6 months the scaffold is completely resorbed and replaced by new tendon-like tissue.</div></div>
-    <div class="s5-step"><div class="s5-conn"></div><div class="s5-num">4</div><div class="s5-title">New tissue remains</div><div class="s5-body">Approximately 2mm of new tendon-like tissue. Integrity confirmed durable at 5 years in 73% of patients.</div></div>
-  </div>
-  <div class="s5-key"><strong style="color:#C8102E;">Two applications:</strong> Used alone as an isolated treatment for partial-thickness tears, or applied over a standard repair for full-thickness tears. Restorative, not reparative.</div>
 </div>
 
-<!-- 6: CLINICAL EVIDENCE -->
+<!-- 6 CLINICAL EVIDENCE -->
 <div class="slide t-white" id="s6">
-  <div class="s6-top">
-    <div class="s6-ey">Clinical Evidence</div>
-    <h2 class="s6-h2">The data at 1 year and 2 years</h2>
-  </div>
-  <div class="s6-rct">
-    <div class="s6-lbl">Randomized Controlled Trial (Ruiz Iban et al.) &bull; Medium-to-Large Full-Thickness Tears &bull; Source: smithandnephew.com</div>
-    <div class="s6-cmp">
-      <div class="cbox g"><div class="cbox-n">8.3%</div><div class="cbox-l">Re-tear at 1 year<br><strong>REGENETEN augmentation</strong></div></div>
-      <div class="cbox b"><div class="cbox-n">25.8%</div><div class="cbox-l">Re-tear at 1 year<br><strong>standard repair alone</strong></div></div>
+  <div class="clin-wrap">
+    <div class="clin-hdr">
+      <span class="clin-ey">Clinical Evidence</span>
+      <h2 class="clin-h2">The data at 1 year and 2 years</h2>
     </div>
-    <div class="s6-footer">3x reduction in re-tear risk &bull; Relative risk = 0.32 &bull; 95% CI: 0.13 to 0.83 &bull; p = 0.0106 &bull; Statistically significant</div>
-    <div class="s6-extras">
-      <div class="rxt"><div class="rxt-n">12.3%</div><div class="rxt-l">vs 35.1% re-tear at 2 years</div></div>
-      <div class="rxt"><div class="rxt-n">65%</div><div class="rxt-l">lower relative risk at 2 years (p=0.004)</div></div>
-      <div class="rxt"><div class="rxt-n">97.1%</div><div class="rxt-l">patient satisfaction &bull; 100% would recommend</div></div>
+    <div class="clin-rct">
+      <div class="clin-lbl">Randomized Controlled Trial (Ruiz Iban et al.) &bull; Medium-to-Large Full-Thickness Tears &bull; Source: smithandnephew.com</div>
+      <div class="clin-cmp">
+        <div class="cbox g"><div class="cbox-n">8.3%</div><div class="cbox-l">Re-tear at 1 year<br><strong>REGENETEN augmentation</strong></div></div>
+        <div class="cbox b"><div class="cbox-n">25.8%</div><div class="cbox-l">Re-tear at 1 year<br><strong>standard repair alone</strong></div></div>
+      </div>
+      <div class="clin-footer">3x reduction in re-tear risk &bull; Relative risk = 0.32 &bull; 95% CI: 0.13 to 0.83 &bull; p = 0.0106 &bull; Statistically significant</div>
+      <div class="clin-extras">
+        <div class="rxt"><div class="rxt-n">12.3%</div><div class="rxt-l">vs 35.1% re-tear at 2 years</div></div>
+        <div class="rxt"><div class="rxt-n">65%</div><div class="rxt-l">lower relative risk at 2 years (p=0.004)</div></div>
+        <div class="rxt"><div class="rxt-n">97.1%</div><div class="rxt-l">patient satisfaction &bull; 100% would recommend</div></div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- 7: WHY IT MATTERS -->
+<!-- 7 WHY IT MATTERS -->
 <div class="slide t-red" id="s7">
-  <div class="s7-top">
-    <div class="s7-ey">Why It Matters</div>
-    <h2 class="s7-h2">What changes for patients, surgeons, and the hospital</h2>
+  <div class="why-wrap">
+    <div class="why-hdr">
+      <span class="why-ey">Why It Matters</span>
+      <h2 class="why-h2">What changes for patients, surgeons, and the hospital</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-ct">For patients</div><ul class="why-pts"><li>Average 10.6 days in a sling</li><li>Return to work under 10 days</li><li>3x lower re-tear risk at 1 year</li><li>97.1% satisfaction rate</li><li>Durability confirmed at 5 years</li></ul></div>
+      <div class="why-card"><div class="why-ct">For surgeons</div><ul class="why-pts"><li>RCT-backed, Level 1 evidence</li><li>Suture-free, 13.9-minute procedure</li><li>Partial and full-thickness tears</li><li>Expandable to hip, foot, and ankle</li><li>87% of PT tears reduced by 50%+</li></ul></div>
+      <div class="why-card"><div class="why-ct">For the hospital</div><ul class="why-pts"><li>Fewer revision surgeries</li><li>Lower long-term cost per patient</li><li>150,000+ patients treated</li><li>10+ published clinical studies</li><li>650+ patients in evidence base</li></ul></div>
+    </div>
+    <div class="why-note">I grew up in the OR. I know what a failed repair means for a patient. This product does not just improve the surgery. It changes the expected outcome.</div>
   </div>
-  <div class="s7-grid">
-    <div class="s7-card"><div class="s7-ct">For patients</div><ul class="s7-pts"><li>Average 10.6 days in a sling</li><li>Return to work under 10 days</li><li>3x lower re-tear risk at 1 year</li><li>97.1% satisfaction rate</li><li>Durability confirmed at 5 years</li></ul></div>
-    <div class="s7-card"><div class="s7-ct">For surgeons</div><ul class="s7-pts"><li>RCT-backed, Level 1 evidence</li><li>Suture-free, 13.9-minute procedure</li><li>Partial and full-thickness tears</li><li>Expandable to hip, foot, and ankle</li><li>87% of PT tears reduced by 50%+</li></ul></div>
-    <div class="s7-card"><div class="s7-ct">For the hospital</div><ul class="s7-pts"><li>Fewer revision surgeries</li><li>Lower long-term cost per patient</li><li>150,000+ patients treated</li><li>10+ published clinical studies</li><li>650+ patients in evidence base</li></ul></div>
-  </div>
-  <div class="s7-note">I grew up in the OR. I know what a failed repair means for a patient. This product does not just improve the surgery. It changes the expected outcome.</div>
 </div>
 
-<!-- 8: CLOSE -->
+<!-- 8 CLOSE -->
 <div class="slide t-dark" id="s8">
-  <div class="s8-top">
-    <div class="s8-ey">Closing</div>
-    <h2 class="s8-h2">Why I want to sell this product</h2>
-  </div>
-  <p class="s8-body">I grew up in the OR knowing this world was always for me. I have the sales results that show I am not afraid of volume or grind. I have the background to walk into any OR in this territory and speak the language. REGENETEN is a product I can get behind completely. The science is strong, the outcomes are clear, and the surgeon relationship is everything. I am not asking for a chance. I am telling you what I will do with one.</p>
-  <div class="s8-grid">
-    <div class="s8-card"><div class="s8-ct">The product is proven</div><div class="s8-cb">3x re-tear reduction. 65% risk reduction at 2 years. 150,000+ patients. 97.1% satisfaction.</div></div>
-    <div class="s8-card"><div class="s8-ct">Restorative, not reparative</div><div class="s8-cb">Not a patch or graft. The body grows new tissue. A clinical story surgeons need to hear.</div></div>
-    <div class="s8-card"><div class="s8-ct">I understand this world</div><div class="s8-cb">Grew up in the OR. My father is an orthopedic surgeon in Salt Lake City. I know what great looks like.</div></div>
-    <div class="s8-card"><div class="s8-ct">I will outwork the competition</div><div class="s8-cb">140+ cold calls daily. 75% lift in opportunity creation. Ready to grow this territory.</div></div>
+  <div class="close-wrap">
+    <div class="close-hdr">
+      <div class="close-ey">Closing</div>
+      <h2 class="close-h2">Why I want to sell this product</h2>
+    </div>
+    <p class="close-body">I grew up in the OR knowing this world was always for me. I have the sales results that show I am not afraid of volume or grind. I have the background to walk into any OR in this territory and speak the language. REGENETEN is a product I can get behind completely. The science is strong, the outcomes are clear, and the surgeon relationship is everything. I am not asking for a chance. I am telling you what I will do with one.</p>
+    <div class="close-grid">
+      <div class="close-card"><div class="close-ct">The product is proven</div><div class="close-cb">3x re-tear reduction. 65% risk reduction at 2 years. 150,000+ patients. 97.1% satisfaction.</div></div>
+      <div class="close-card"><div class="close-ct">Restorative, not reparative</div><div class="close-cb">Not a patch or graft. The body grows new tissue. A clinical story surgeons need to hear.</div></div>
+      <div class="close-card"><div class="close-ct">I understand this world</div><div class="close-cb">Grew up in the OR. My father is an orthopedic surgeon in Salt Lake City. I know what great looks like.</div></div>
+      <div class="close-card"><div class="close-ct">I will outwork the competition</div><div class="close-cb">140+ cold calls daily. 75% lift in opportunity creation. Ready to grow this territory.</div></div>
+    </div>
   </div>
 </div>
 
@@ -437,8 +346,8 @@ function show(n){
 }
 function next(){show(c+1);} function prev(){show(c-1);} function go(n){show(n);}
 document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();next();}
-  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();prev();}
+  if(['ArrowRight','ArrowDown',' '].includes(e.key)){e.preventDefault();next();}
+  if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();prev();}
 });
 let tx=0;
 document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
