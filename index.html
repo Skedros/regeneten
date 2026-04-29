@@ -155,6 +155,28 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 .how-gif { width: 100%; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,.15); }
 .how-gif-cap { font-size: 10px; color: #aaa; margin-top: 8px; letter-spacing: .04em; }
 .how-right { display: flex; flex-direction: column; gap: 3vh; justify-content: center; }
+
+/* ── ABOUT ME: OPTION C ── */
+.intro-left { display: flex; flex-direction: column; }
+.intro-sec-top { padding: 4vh 3.5vw 3vh; border-bottom: 1px solid #1a0610; }
+.intro-sec-mid { padding: 3vh 3.5vw; flex: 1; display: flex; align-items: center; }
+.intro-sec-bot { padding: 3vh 3.5vw; background: #120508; }
+
+/* ── WHY IT MATTERS: OPTION 3 ── */
+.why-stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3vw; width: 100%; flex: 1; }
+.why-stat-col { display: flex; flex-direction: column; gap: 1.8vh; }
+.why-stat-cat { font-size: clamp(9px,.85vw,12px); font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: #C8102E; padding-bottom: 1vh; border-bottom: 1px solid #2a0a18; flex-shrink: 0; }
+.why-stat-row { display: flex; align-items: baseline; gap: 1vw; }
+.why-stat-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px,2.6vw,38px); font-weight: 700; color: #C8102E; line-height: 1; flex-shrink: 0; min-width: 4.5vw; }
+.why-stat-lbl { font-size: clamp(11px,1.05vw,14px); color: #888; line-height: 1.45; }
+
+/* ── CLOSING: OPTION 3 ── */
+.close-split { display: grid; grid-template-columns: 1fr 1fr; width: 100%; height: 88vh; }
+.close-left { padding: 6vh 4vw 6vh 0; display: flex; flex-direction: column; justify-content: center; gap: 2.2vh; border-right: 1px solid #1a0610; }
+.close-right { padding: 6vh 0 6vh 4vw; display: flex; align-items: center; }
+.close-rule { width: 100%; height: 1px; background: #2a0a18; }
+.close-final { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px,1.8vw,26px); font-weight: 600; color: #C8102E; line-height: 1.35; font-style: italic; }
+.close-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4vw 1.4vw; width: 100%; }
 </style>
 </head>
 <body>
@@ -178,14 +200,19 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 <div class="slide t-off" id="s2">
   <div class="intro-wrap">
     <div class="intro-left">
-      <div class="intro-glow"></div>
-      <div class="intro-ey">About Me</div>
-      <div class="intro-name">Athan Skedros</div>
-      <div class="intro-role">Finance Senior &bull; University of Utah &bull; May 2026 &bull; 3.75 GPA</div>
-      <p class="intro-bio">I am finishing my finance degree at the University of Utah this May. My background is in B2B outbound sales and I grew up around medicine and the OR with my father, a fellowship-trained orthopedic surgeon here in Salt Lake City. I always knew this world was for me. I have spent my career building the skills to be a genuine resource in it.</p>
-      <div class="intro-qbar">
-        <div class="intro-qt">Med device sales is not about selling. It is about being a partner, a trusted resource, and a bridge across the continuum of care.</div>
-        <div class="intro-qa">That is the rep I am building toward.</div>
+      <div class="intro-sec-top">
+        <div class="intro-ey">About Me</div>
+        <div class="intro-name">Athan Skedros</div>
+        <div class="intro-role">Finance Senior &bull; University of Utah &bull; May 2026 &bull; 3.75 GPA</div>
+      </div>
+      <div class="intro-sec-mid">
+        <p class="intro-bio">I am finishing my finance degree at the University of Utah this May. My background is in B2B outbound sales and I grew up around medicine and the OR with my father, a fellowship-trained orthopedic surgeon here in Salt Lake City. I always knew this world was for me. I have spent my career building the skills to be a genuine resource in it.</p>
+      </div>
+      <div class="intro-sec-bot">
+        <div class="intro-qbar">
+          <div class="intro-qt">Med device sales is not about selling. It is about being a partner, a trusted resource, and a bridge across the continuum of care.</div>
+          <div class="intro-qa">That is the rep I am building toward.</div>
+        </div>
       </div>
     </div>
     <div class="intro-right">
@@ -284,34 +311,57 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 </div>
 
 <!-- 7 WHY IT MATTERS -->
-<div class="slide t-red" id="s7">
+<div class="slide t-dark" id="s7">
   <div class="why-wrap">
     <div class="why-hdr">
-      <span class="why-ey">Why It Matters</span>
-      <h2 class="why-h2">What changes for patients, surgeons, and the hospital</h2>
+      <span class="why-ey" style="color:rgba(255,255,255,.42);">Why It Matters</span>
+      <h2 class="why-h2" style="color:#fff;">What changes for patients, surgeons, and the hospital</h2>
     </div>
-    <div class="why-grid">
-      <div class="why-card"><div class="why-ct">For patients</div><ul class="why-pts"><li>Average 10.6 days in a sling</li><li>Return to work under 10 days</li><li>3x lower re-tear risk at 1 year</li><li>97.1% satisfaction rate</li><li>Durability confirmed at 5 years</li></ul></div>
-      <div class="why-card"><div class="why-ct">For surgeons</div><ul class="why-pts"><li>RCT-backed, Level 1 evidence</li><li>Suture-free, 13.9-minute procedure</li><li>Partial and full-thickness tears</li><li>Expandable to hip, foot, and ankle</li><li>87% of PT tears reduced by 50%+</li></ul></div>
-      <div class="why-card"><div class="why-ct">For the hospital</div><ul class="why-pts"><li>Fewer revision surgeries</li><li>Lower long-term cost per patient</li><li>150,000+ patients treated</li><li>10+ published clinical studies</li><li>650+ patients in evidence base</li></ul></div>
+    <div style="width:100%;height:2px;background:#C8102E;margin-bottom:2.5vh;flex-shrink:0;"></div>
+    <div class="why-stats-grid">
+      <div class="why-stat-col">
+        <div class="why-stat-cat">For patients</div>
+        <div class="why-stat-row"><span class="why-stat-num">10.6</span><span class="why-stat-lbl">days in a sling on average</span></div>
+        <div class="why-stat-row"><span class="why-stat-num">97.1%</span><span class="why-stat-lbl">patient satisfaction rate</span></div>
+        <div class="why-stat-row"><span class="why-stat-num">3x</span><span class="why-stat-lbl">lower re-tear risk at 1 year</span></div>
+        <div class="why-stat-row"><span class="why-stat-num">&lt;10</span><span class="why-stat-lbl">days to return to work</span></div>
+      </div>
+      <div class="why-stat-col">
+        <div class="why-stat-cat">For surgeons</div>
+        <div class="why-stat-row"><span class="why-stat-num">13.9m</span><span class="why-stat-lbl">suture-free procedure time</span></div>
+        <div class="why-stat-row"><span class="why-stat-num">87%</span><span class="why-stat-lbl">of PT tears reduced by 50%+</span></div>
+        <div class="why-stat-row"><span class="why-stat-num">L1</span><span class="why-stat-lbl">RCT-backed Level 1 evidence</span></div>
+        <div class="why-stat-row"><span class="why-stat-num">3</span><span class="why-stat-lbl">anatomies: shoulder, hip, foot</span></div>
+      </div>
+      <div class="why-stat-col">
+        <div class="why-stat-cat">For the hospital</div>
+        <div class="why-stat-row"><span class="why-stat-num">150K+</span><span class="why-stat-lbl">patients treated globally</span></div>
+        <div class="why-stat-row"><span class="why-stat-num">10+</span><span class="why-stat-lbl">published clinical studies</span></div>
+        <div class="why-stat-row"><span class="why-stat-num">650+</span><span class="why-stat-lbl">patients in evidence base</span></div>
+        <div class="why-stat-row"><span class="why-stat-num">&darr;</span><span class="why-stat-lbl">fewer revisions, lower cost per patient</span></div>
+      </div>
     </div>
-    <div class="why-note">I grew up in the OR. I know what a failed repair means for a patient. This product does not just improve the surgery. It changes the expected outcome.</div>
+    <div class="why-note" style="border-left-color:rgba(255,255,255,.3);color:rgba(255,255,255,.62);">I grew up in the OR. I know what a failed repair means for a patient. This product does not just improve the surgery. It changes the expected outcome.</div>
   </div>
 </div>
 
 <!-- 8 CLOSE -->
 <div class="slide t-dark" id="s8">
-  <div class="close-wrap">
-    <div class="close-hdr">
+  <div class="close-split">
+    <div class="close-left">
       <div class="close-ey">Closing</div>
       <h2 class="close-h2">Why I want to sell this product</h2>
+      <div class="close-rule"></div>
+      <p class="close-body">I grew up in the OR knowing this world was always for me. I have the sales results that show I am not afraid of volume or grind. I have the background to walk into any OR in this territory and speak the language. REGENETEN is a product I can get behind completely.</p>
+      <div class="close-final">I am not asking for a chance. I am telling you what I will do with one.</div>
     </div>
-    <p class="close-body">I grew up in the OR knowing this world was always for me. I have the sales results that show I am not afraid of volume or grind. I have the background to walk into any OR in this territory and speak the language. REGENETEN is a product I can get behind completely. The science is strong, the outcomes are clear, and the surgeon relationship is everything. I am not asking for a chance. I am telling you what I will do with one.</p>
-    <div class="close-grid">
-      <div class="close-card"><div class="close-ct">The product is proven</div><div class="close-cb">3x re-tear reduction. 65% risk reduction at 2 years. 150,000+ patients. 97.1% satisfaction.</div></div>
-      <div class="close-card"><div class="close-ct">Restorative, not reparative</div><div class="close-cb">Not a patch or graft. The body grows new tissue. A clinical story surgeons need to hear.</div></div>
-      <div class="close-card"><div class="close-ct">I understand this world</div><div class="close-cb">Grew up in the OR. My father is an orthopedic surgeon in Salt Lake City. I know what great looks like.</div></div>
-      <div class="close-card"><div class="close-ct">I will outwork the competition</div><div class="close-cb">140+ cold calls daily. 75% lift in opportunity creation. Ready to grow this territory.</div></div>
+    <div class="close-right">
+      <div class="close-grid2">
+        <div class="close-card"><div class="close-ct">The product is proven</div><div class="close-cb">3x re-tear reduction. 65% risk reduction at 2 years. 150,000+ patients. 97.1% satisfaction.</div></div>
+        <div class="close-card"><div class="close-ct">Restorative, not reparative</div><div class="close-cb">Not a patch or graft. The body grows new tissue. A clinical story surgeons need to hear.</div></div>
+        <div class="close-card"><div class="close-ct">I understand this world</div><div class="close-cb">Grew up in the OR. My father is an orthopedic surgeon in Salt Lake City. I know what great looks like.</div></div>
+        <div class="close-card"><div class="close-ct">I will outwork the competition</div><div class="close-cb">140+ cold calls daily. 75% lift in opportunity creation. Ready to grow this territory.</div></div>
+      </div>
     </div>
   </div>
 </div>
