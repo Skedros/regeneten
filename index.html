@@ -201,21 +201,19 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 .comp-verdict { background: #C8102E; border-radius: 6px; padding: 1.4vh 1.8vw; flex-shrink: 0; }
 .comp-verdict-text { font-size: clamp(13px,1.25vw,17px); font-weight: 600; color: #fff; line-height: 1.55; }
 
-/* ── SLIDE 2.5: THE PROBLEM ── */
-.prob-wrap { width: 100%; display: flex; flex-direction: column; gap: 3vh; }
-.prob-hdr { display: flex; flex-direction: column; gap: 1vh; margin-bottom: .5vh; }
-.prob-ey { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--red, #C8102E); }
-.prob-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,3.6vw,52px); font-weight: 700; color: #fff; line-height: 1.1; }
-.prob-body-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 4vw; }
-.prob-left { display: flex; flex-direction: column; gap: 2vh; }
-.prob-text { font-size: clamp(14px,1.38vw,19px); font-weight: 300; color: rgba(255,255,255,.7); line-height: 1.85; }
-.prob-text strong { color: #fff; font-weight: 600; }
-.prob-setup { background: rgba(200,16,46,.12); border-left: 3px solid #C8102E; border-radius: 0 8px 8px 0; padding: 1.6vh 1.6vw; font-family: 'Cormorant Garamond', serif; font-size: clamp(15px,1.5vw,21px); font-style: italic; color: rgba(255,255,255,.75); line-height: 1.52; }
-.prob-right { display: flex; flex-direction: column; gap: 1.5vh; justify-content: center; }
-.prob-stat { background: rgba(255,255,255,.065); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 2.5vh 2vw; }
-.prob-stat-n { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px,6vw,86px); font-weight: 700; color: #C8102E; line-height: 1; margin-bottom: .8vh; }
-.prob-stat-lbl { font-size: clamp(13px,1.2vw,16px); color: rgba(255,255,255,.6); line-height: 1.5; }
-.prob-stat-lbl strong { color: #fff; font-weight: 600; }
+/* ── SLIDE 3: THE PROBLEM ── */
+.prob-wrap { width: 100%; display: flex; flex-direction: column; gap: 2.5vh; }
+.prob-hdr { display: flex; flex-direction: column; gap: .8vh; }
+.prob-ey { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C8102E; }
+.prob-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,3.6vw,52px); font-weight: 700; color: #0e0204; line-height: 1.1; }
+.prob-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5vw; }
+.prob-card-stat { background: #fff; border: 1px solid #ede7e1; border-top: 3px solid #C8102E; border-radius: 0 0 8px 8px; padding: 2vh 1.8vw; }
+.prob-card-n { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px,4.8vw,68px); font-weight: 700; color: #C8102E; line-height: 1; margin-bottom: .6vh; }
+.prob-card-lbl { font-size: clamp(13px,1.2vw,16px); color: #555; line-height: 1.5; }
+.prob-card-dark { background: #0e0204; border-radius: 8px; padding: 2vh 1.8vw; display: flex; align-items: center; }
+.prob-card-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(14px,1.4vw,19px); font-style: italic; color: rgba(255,255,255,.72); line-height: 1.55; }
+.prob-text { font-size: clamp(14px,1.38vw,19px); font-weight: 300; color: #333; line-height: 1.85; }
+.prob-setup { background: #fdf4f5; border-left: 4px solid #C8102E; border-radius: 0 8px 8px 0; padding: 1.4vh 1.6vw; font-family: 'Cormorant Garamond', serif; font-size: clamp(15px,1.5vw,20px); font-style: italic; color: #0e0204; line-height: 1.52; }
 </style>
 </head>
 <body>
@@ -261,31 +259,27 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans'
 
 
 <!-- 3 THE PROBLEM -->
-<div class="slide t-dark" id="s3p">
+<div class="slide t-off" id="s3p">
   <div class="prob-wrap">
     <div class="prob-hdr">
-      <span class="prob-ey">The Problem</span>
-      <h2 class="prob-h2">Rotator cuff repair has<br>a biology problem</h2>
+      <div class="prob-ey">The Problem</div>
+      <h2 class="prob-h2">Rotator cuff repair has a biology problem</h2>
     </div>
-    <div class="prob-body-grid">
-      <div class="prob-left">
-        <p class="prob-text">Rotator cuff repair is one of the most common orthopedic procedures performed today. And despite decades of advancement in surgical technique, <strong>re-tear rates after standard repair still range from 20 to 40 percent</strong> in medium to large tears. The surgery is not failing because of bad surgeons or poor technique. It is failing because the biological environment of a degenerated tendon is not set up for healing. The tissue is weak, the vascularity is poor, and standard repair stitches damaged tissue back together and asks the body to do the rest. Often, it cannot.</p>
-        <div class="prob-setup">"The question is not how to repair the tendon better mechanically. The question is how to change the biological environment so the body can actually heal."</div>
+    <div class="prob-cards">
+      <div class="prob-card-stat">
+        <div class="prob-card-n">20–40%</div>
+        <div class="prob-card-lbl">re-tear rate after standard repair in medium to large tears</div>
       </div>
-      <div class="prob-right">
-        <div class="prob-stat">
-          <div class="prob-stat-n">20–40%</div>
-          <div class="prob-stat-lbl">Re-tear rate after standard repair in <strong>medium to large tears</strong></div>
-        </div>
-        <div class="prob-stat">
-          <div class="prob-stat-n">$200M</div>
-          <div class="prob-stat-lbl">Annual economic burden of <strong>failed rotator cuff surgery</strong> in the US</div>
-        </div>
-        <div class="prob-stat">
-          <div class="prob-stat-n" style="font-size:clamp(28px,3.2vw,46px);color:rgba(255,255,255,.5);">That is the problem REGENETEN was designed to solve.</div>
-        </div>
+      <div class="prob-card-stat">
+        <div class="prob-card-n">$200M</div>
+        <div class="prob-card-lbl">annual economic burden of failed rotator cuff surgery in the US</div>
+      </div>
+      <div class="prob-card-dark">
+        <div class="prob-card-quote">"The surgery is not failing because of bad technique. It is failing because the biology is broken."</div>
       </div>
     </div>
+    <p class="prob-text">The degenerated tendon environment has poor vascularity, weakened tissue structure, and limited capacity for self-repair. Stitching it back together mechanically asks the body to do something it often cannot do on its own. The failed repair is not a surgical problem. It is a biology problem.</p>
+    <div class="prob-setup">That is the problem REGENETEN was designed to solve.</div>
   </div>
 </div>
 
